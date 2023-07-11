@@ -1,0 +1,34 @@
+<%= render 'books/list', books: @books,user: @user_info %>
+
+<h1><strong>Users</strong></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+ <tbody>
+
+  <% @users.each do |user| %>
+  <tr>
+   <td>
+    <span><%= image_tag 'no-image.jpg' %></span>
+   </td>
+
+   <td>
+    <span><%= user.name %></span>
+   </td>
+
+   <td>
+    <span><%= link_to 'Show', user_path(user.id) %></span>
+   </td>
+  <% end %>
+
+ </tbody>
+
+</table>
+
