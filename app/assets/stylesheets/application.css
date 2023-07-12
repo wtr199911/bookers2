@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+
+ .container {
+   width: 100%;
+   padding-right: 15px;
+   padding-left: 15px;
+   margin-right: auto;
+   margin-left: auto;
+ }
+
+ .navbar
+ .container {
+   display: flex;
+ }
+
+
+ .collapse
+ .navbar-collapse {
+   display: flex!important;
+   flex-basis: auto;
+ }
+
+ .nav-link {
+   list-style: none;
+   padding-right: 0.5rem;
+   padding-left: 0.5rem;
+ }
+
+ ul {
+   padding-left: 0;
+ }
+
+ li {
+   list-style: none;
+ }
