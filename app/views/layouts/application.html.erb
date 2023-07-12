@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <script src="https://kit.fontawesome.com/a36c0b29c4.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,33 +13,69 @@
 
   <body>
     <header>
-     <% if user_signed_in? %>
-      <li>
-        <%= link_to "Home", user_path(current_user.id) %>
-      </li>
-      <li>
-        <%= link_to "Users", users_path %>
-      </li>
-      <li>
-        <%= link_to "Books", books_path %>
-      </li>
-      <li>
-        <%= link_to "Log out", destroy_user_session_path %>
-      </li>
-     <% else %>
-      <li>
-        <%= link_to "Home", root_path %>
-      </li>
-      <li>
-        <%= link_to "About", about_path %>
-      </li>
-      <li>
-        <%= link_to "Sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "log in", new_user_session_path %>
-      </li>
-     <% end %>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="contaner">
+          <%= link_to "Bookers", root_path %>
+            <button class="navbar-toggler" type="button" date-toggle="collapse" date-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navugation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+           <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <% if user_signed_in? %>
+             <ul class="navbar-nav ml-auto">
+               <li>
+                 <%= link_to user_path(current_user.id) do %>
+                 <i class="fa-solid fa-house-chimney"></i>
+                 Home
+                 <% end %>
+               </li>
+               <li>
+                 <%= link_to users_path do %>
+                 <i class="fa-solid fa-users"></i>
+                 User
+                 <% end %>
+               </li>
+               <li>
+                 <%= link_to books_path do %>
+                 <i class="fa-solid fa-book-open"></i>
+                 Books
+                 <% end %>
+               </li>
+               <li>
+                 <%= link_to destroy_user_session_path do %>
+                 <i class="fa-solid fa-right-from-bracket"></i>
+                 Log out
+                 <% end %>
+               </li>
+            <% else %>
+               <li>
+                 <%= link_to user_path(current_user.id) do %>
+                 <i class="fa-solid fa-house-chimney"></i>
+                 Home
+                 <% end %>
+               </li>
+               <li>
+                 <%= link_to about_path do %>
+                 <i class="fa-solid fa-link"></i>
+                 About
+                 <% end %>
+               </li>
+               <li>
+                 <%= link_to new_user_registration_path do %>
+                 <i class="fa-solid fa-user-plus"></i>
+                 Sign up
+                 <% end %>
+               </li>
+               <li>
+                 <%= link_to new_user_session_path do %>
+                 <i class="fa-solid fa-right-from-bracket"></i>
+                 Log in
+                 <% end %>
+               </li>
+             </ul>
+            <% end %>
+           </div>
+      </div>
+     </nav>
     </header>
    <main>
     <%= yield %>

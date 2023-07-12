@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @users = User.all
     @user_info = current_user
   end
-  
+
   def create
     @user = User.new(book_params)
     @user.user_id = current_user.id
@@ -23,11 +23,17 @@ class UsersController < ApplicationController
   def edit
     @edituser = User.find(params[:id])
   end
-  
+
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path
+  end
+
   private
 
-  def book_params
-    params.require(:book).permit(:title, :body)
+  def user_params
+    params.require(:user).permit(:name, :introduction)
   end
-  
+
 end
