@@ -1,35 +1,47 @@
-<%= render 'list', books: @showbook, user: @book_info %>
+<div>
+  <%= flash[:notice] %>
+</div>
 
-<h1><strong>Books</strong></h1>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <%= render 'list', book: @book, user: @user_info %>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>image</th>
-      <th>title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="col-md-8 offset-md-1">
+      <h2 style="margin-top: 15px;">Book detail</h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <%= image_tag 'no-image.jpg' %><br>
+              <%= link_to @showbook.user.name, user_path %>
+            </td>
+            <td>
+              <span>
+                <%= link_to book_path(@showbook) do %>
+                <%= @showbook.title %>
+              </span>
+                <% end %>
+            </td>
+            <td>
+              <span><%= @showbook.body %></span>
+            </td>
+            <td>
+              <span><%= link_to "Edit", edit_book_path, class: "btn btn-sm btn-success" %></span>
+            </td>
+            <td>
+              <span>
+                <% if @showbook.user == current_user %>
+                   <%= link_to "Destroy", book_path(@showbook), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %>
+                <% end %>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
- <tbody>
-
-  <tr>
-   <td>
-     <%= image_tag 'no-image.jpg' %><br>
-     <%= link_to @showbook.user.name, user_path %>
-   </td>
 
 
-   <td>
-    <span><%= @showbook.title %></span>
-   </td>
 
-   <td>
-     <span><%= @showbook.body %></span>
-   </td>
-
-
- </tbody>
-
-</table>
