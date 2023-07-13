@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2 style="margin-top: 15px;">Editing Book</h2>
-      <%= form_with model: @edituser do |f| %>
+      <%= form_with model: @editbook,url: book_path(@editbook.id), method: :patch do |f| %>
 
       <div class="group" style="margin-bottom: 1rem;">
         <label for="inputName">Title</label>

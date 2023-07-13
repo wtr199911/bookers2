@@ -12,7 +12,7 @@
         <tbody>
           <tr>
             <td>
-              <%= image_tag 'no-image.jpg' %><br>
+              <%= image_tag @user_info.get_profile_image(100,100) %><br>
               <%= link_to @showbook.user.name, user_path %>
             </td>
             <td>
@@ -26,7 +26,11 @@
               <span><%= @showbook.body %></span>
             </td>
             <td>
-              <span><%= link_to "Edit", edit_book_path, class: "btn btn-sm btn-success" %></span>
+              <span>
+                <% if @showbook.user == current_user %>
+                   <%= link_to "Edit", edit_book_path, class: "btn btn-sm btn-success" %>
+                <% end %>
+              </span>
             </td>
             <td>
               <span>
