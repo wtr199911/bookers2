@@ -1,3 +1,4 @@
+<p></p>
 <div class="container px-5 px-sm-0">
  <div class="row">
    <%= render 'books/list', book: @book,user: @user_info %>
@@ -16,7 +17,7 @@
         <% @users.each do |user| %>
           <tr>
             <td>
-            <span><%= image_tag user.get_profile_image(100,100) %></span>
+            <span><%= image_tag user.get_profile_image(80,80) %></span>
             </td>
 
             <td>

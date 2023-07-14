@@ -1,18 +1,18 @@
-<div>
+<p>
   <%= flash[:notice] %>
-</div>
+</p>
 
 <div class="container px-5 px-sm-0">
   <div class="row">
     <%= render 'list', book: @book, user: @user_info %>
 
     <div class="col-md-8 offset-md-1">
-      <h2 style="margin-top: 15px;">Book detail</h2>
+      <h2>Book detail</h2>
       <table class="table">
         <tbody>
           <tr>
             <td>
-              <%= image_tag @user_info.get_profile_image(100,100) %><br>
+              <%= image_tag @user_info.get_profile_image(80,80) %><br>
               <%= link_to @showbook.user.name, user_path %>
             </td>
             <td>
