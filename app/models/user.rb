@@ -9,10 +9,10 @@ class User < ApplicationRecord
   validates :name,
    presence: true,
    uniqueness: true,
-   length: { minimum: 1, maxmum: 2 }
+   length: { minimum: 2, maxmum: 20 }
 
   validates :introduction,
-   length: { minimum: 1, maximum: 50 }
+   length: { maximum: 50 }
 
   has_one_attached :profile_image
 
